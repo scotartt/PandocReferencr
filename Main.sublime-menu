@@ -1,0 +1,18 @@
+[
+    {
+        "id": "tools",
+        "children":
+        [
+            {
+                "caption": "Pandoc References",
+                "children":
+                [
+                    {
+                        "caption": "Check References",
+                        "command": "check_ref",
+                    }
+                ]
+            }
+        ]
+    }
+]
