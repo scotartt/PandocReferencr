@@ -21,12 +21,11 @@ class CheckRefCommand(sublime_plugin.TextCommand):
 			#print("... searching now for note " + fn_textvalue.pattern)
 			fn_match = fn_textvalue.search(all_buffer)
 			if fn_match:
-				print(grp + " match")
-				#print("'" + grp + "' matches to '" + fn_match.group(1) + "' at " + str(fn_match.span()) + " - the note value of " + fn + " == '" + fn_match.group(2) + "'")
+				print(grp + " got match")
 			else:
 				lineno = all_buffer.count("\n", 0, m.start()) + 1;
 				unmatched_fn[grp]="line " + str(lineno) + "; pos " + str(m.span())
-				print(grp + " no match")
+				print(grp + " no match found!")
 
 		if len(unmatched_fn) > 0:
 			unmatched_msg = ""
@@ -38,6 +37,30 @@ class CheckRefCommand(sublime_plugin.TextCommand):
 			print(msg)
 			sublime.status_message(msg)
 		return
+
+class CompileRefCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		sublime.status_message('running referencr... ')
+		print("Referencr - compiling markdown reference matches.")
+		unmatched_fn = {}
+		matched_fn = {}
+		all_buffer = self.view.substr(sublime.Region(0, self.view.size()))
+		print("... looking in all current buffer for matches with " + footnote.pattern)
+		matches = footnote.finditer(all_buffer)
+		newview = self.view.window().new_file()
+		for m in matches :
+			grp = m.group(1) # this is the real note. group(0) has trailing gumpf
+			fn = m.group(2)
+			fn_textvalue = re.compile(r'\s*(\[\^' + fn + r'\]\s*:\s*(.*))$\n', re.MULTILINE)
+			#print("... searching now for note " + fn_textvalue.pattern)
+			fn_match = fn_textvalue.search(all_buffer)
+			if fn_match:
+				print(grp + " got match")
+				matched_fn[fn] = fn_match.grp(2)
+			else :
+				print(grp + " no match found")
+
+
 
 '''
 [^test0]: hi, this is a friendly footnote.
