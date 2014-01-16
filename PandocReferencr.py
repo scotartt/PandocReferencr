@@ -47,7 +47,11 @@ class CompileRefCommand(sublime_plugin.TextCommand):
 		all_buffer = self.view.substr(sublime.Region(0, self.view.size()))
 		print("... looking in all current buffer for matches with " + footnote.pattern)
 		matches = footnote.finditer(all_buffer)
-		newview = self.view.window().new_file()
+		outview = self.new_view(edit, self.view)
+		outedit = outview.begin_edit
+		outview.insert(outedit, 0, "Hello World")
+		outview.end_edit(outedit)
+
 		for m in matches :
 			grp = m.group(1) # this is the real note. group(0) has trailing gumpf
 			fn = m.group(2)
@@ -56,10 +60,20 @@ class CompileRefCommand(sublime_plugin.TextCommand):
 			fn_match = fn_textvalue.search(all_buffer)
 			if fn_match:
 				print(grp + " got match")
-				matched_fn[fn] = fn_match.grp(2)
+				matched_fn[fn] = fn_match.group(2)
 			else :
 				print(grp + " no match found")
 
+	def new_view(self, edit, ownerview):
+		ownername = ownerview.file_name();
+		if not ownername:
+			ownername = ownerview.name()
+			if not ownername:
+				ownername = ownerview.id()
+		newview = ownerview.window().create_output_panel(ownername + ".refs")
+		##ownerview.window().show_panel("output." + ownername + ".refs")
+		ownerview.window().focus_view(newview)
+		return newview
 
 
 '''
