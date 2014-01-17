@@ -1,4 +1,4 @@
-import sublime, sublime_plugin, sys, re
+import sublime, sublime_plugin, sys, re, operator
 
 
 footnote = re.compile(r'(\[\^([a-zA-Z0-9]+?)\])\s*[^:]') 
@@ -10,7 +10,7 @@ class CheckRefCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		sublime.status_message('running referencr... ')
 		print("Referencr - looking for markdown reference matches.")
-		unmatched_fn = {}
+		unmatched_fn = []
 		all_buffer = self.view.substr(sublime.Region(0, self.view.size()))
 		print("... looking in all current buffer for matches with " + footnote.pattern)
 		matches = footnote.finditer(all_buffer)
@@ -24,13 +24,15 @@ class CheckRefCommand(sublime_plugin.TextCommand):
 				print(grp + " got match")
 			else:
 				lineno = all_buffer.count("\n", 0, m.start()) + 1;
-				unmatched_fn[grp]="line " + str(lineno) + "; pos " + str(m.span())
+				unmatched_fn.append( {'key' : grp, 'line':lineno,'pos':m.span()} )
 				print(grp + " no match found!")
 
 		if len(unmatched_fn) > 0:
 			unmatched_msg = ""
-			for key in unmatched_fn:
-				unmatched_msg = unmatched_msg + key + " at " + unmatched_fn[key] + "\n"
+			from operator import itemgetter
+			newlist = sorted(unmatched_fn, key=itemgetter('line'))
+			for item in newlist:
+				unmatched_msg = unmatched_msg + item['key'] + ", at line " + str(item['line']) + "; pos " + str(item['pos']) + "\n"
 			sublime.error_message("Unmatched footnotes!\n" + str(unmatched_msg))
 		else :
 			msg = "All OK!"
