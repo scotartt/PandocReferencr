@@ -1,5 +1,8 @@
 import sublime, sublime_plugin, sys, re, operator
 
+## This class self-tests! Kind of. Run the CheckRef command over this file.
+## It will then check itself. There are deliberate errors that it should find.
+## See the comments next to the pandoc refs in python comments below.
 
 footnote_insert = re.compile(r'(\[\^([a-zA-Z0-9]+?)\])\s*[^:]') 
 footnote_text = re.compile(r'^\s*(((\[\^([a-zA-Z0-9]+?)\])\s*:).*?)$', re.MULTILINE) 
