@@ -10,6 +10,10 @@
                     {
                         "caption": "Check References",
                         "command": "check_ref",
+                    },
+                    {
+                        "caption": "Insert Reference",
+                        "command": "insert_ref",
                     }
                 ]
             }
