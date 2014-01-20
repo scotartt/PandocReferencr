@@ -4,7 +4,7 @@ footnote_insert = re.compile(r'(\[\^([a-zA-Z0-9]+?)\])\s*[^:]')
 footnote_text = re.compile(r'^\s*(((\[\^([a-zA-Z0-9]+?)\])\s*:).*?)$', re.MULTILINE) 
 spaces = re.compile(r"[\s\W]+", re.MULTILINE)
 
-class InsertRefCommand(sublime_plugin.TextCommand):
+class InsertFootnoteCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		sublime.status_message('Insert Reference... ')
 		print("Referencr - Insert a new Reference.")
@@ -17,11 +17,11 @@ class InsertRefCommand(sublime_plugin.TextCommand):
 
 	def set_ref(self, ref):
 		print("user entered: " + ref)
-		self.view.run_command("insert_entered_refs",
+		self.view.run_command("insert_entered_fn",
 				{"ref":ref}
 			)
 
-class InsertEnteredRefsCommand(sublime_plugin.TextCommand):
+class InsertEnteredFnCommand(sublime_plugin.TextCommand):
 	def run(self, edit, ref):
 		_ref = "[^" + ref + "]"
 		v = self.view
@@ -49,9 +49,7 @@ class InsertEnteredFootnoteTextCommand(sublime_plugin.TextCommand):
 		self.view.insert(edit, self.view.size(), "\n  " + fnref + ": " + fntext + "\n")
 		pass
 
-
-
-# test block[^block23]
-# text comment block[^block23]
+# test block
+# text comment block
 # comments for ref insert test.
 

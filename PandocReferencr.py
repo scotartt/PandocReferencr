@@ -11,7 +11,7 @@ footnote_text = re.compile(r'^\s*(((\[\^([a-zA-Z0-9]+?)\])\s*:).*?)$', re.MULTIL
 # a test selection.[^test1] this is text of markdown footnotes.[^test2] in a comment
 # such that this class can test on itself![^nomatch0]***<-this ref has no match.
 
-class CheckRefCommand(sublime_plugin.TextCommand):
+class CheckFootnotesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		sublime.status_message('running referencr... ')
 		print("Referencr - looking for markdown reference matches and unmatched references.")
