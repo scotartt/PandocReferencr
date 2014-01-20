@@ -34,7 +34,7 @@ class InsertEnteredRefsCommand(sublime_plugin.TextCommand):
 			v.insert(edit, r.end(), _ref)
 			i = i+1
 		w.show_input_panel("Enter footnote text:", '', 
-			lambda s:self.set_footnote_text(_ref, s), None, self.set_footnote_text(_ref, ''))
+			lambda s:self.set_footnote_text(_ref, s), None, None)
 		pass
 
 	def set_footnote_text(self, fnref, fntext):
