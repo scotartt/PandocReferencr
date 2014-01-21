@@ -1,5 +1,0 @@
-{
-	"url": "https://github.com/scotartt/PandocReferencr", 
-	"version": "2014.1", 
-	"description": "A Sublime Text 3 plugin that totes up the Pandoc/Markdown footnote references in a file ([^refno]) and checks there is an entry for the reference."
-}
