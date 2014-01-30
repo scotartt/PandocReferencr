@@ -43,8 +43,6 @@ When you check the footnotes, if everything is OK in current buffer (open docume
 
 If there are errors, a warning dialog will tell you the ids and line numbers where there are issues.
 
-
-
     For example, this text has a footnote with a valid footnote 
     text.[^footnote1] However this note is missing,[^missing1] if 
     you invoke check_references on this file it will say there's 
