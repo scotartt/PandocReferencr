@@ -60,7 +60,5 @@ class InsertEnteredFootnoteTextCommand(sublime_plugin.TextCommand):
 		self.view.insert(edit, self.view.size(), "\n  " + fnref + ": " + fntext + "\n")
 		pass
 
-# test block
-# text comment block
-# comments for ref insert test.
+
 
