@@ -7,6 +7,8 @@ This plugin totes up the Pandoc/Markdown footnote references in the current  fil
 
     [^footnoteid1]: And this is the text of the footnote.
 
+There is also a very useful command for inserting footnotes, which prompts you for a footnote id (with defaults) and then the text for the footnote, which is inserted at the end of the file (soon to be a configurable location). See below for more information.
+
 
 Installing it in Sublime Text
 -----------------------------
