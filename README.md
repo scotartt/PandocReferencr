@@ -3,11 +3,20 @@ PandocReferencr
 
 This plugin totes up the Pandoc/Markdown footnote references in a file ([^reference1]) and checks there is an entry for the reference. It also checks for orphaned footnote entries (i.e. footnote text that has no insert point in the main body).
 
+Installing it in Sublime Text
+-----------------------------
+
+It's available from Package Control - https://sublime.wbond.net/packages/Pandoc%20Referencer
+
+
+Invoking it
+-----------
+
 Default command palette (and key bindings):
 
-    Pandoc Footnotes: Check (ctrl+super+alt+r)
+* 'Pandoc Footnotes: Check' (ctrl+super+alt+r)
 
-    Pandoc Footnotes: Insert New (super+alt+r)
+* 'Pandoc Footnotes: Insert New' (super+alt+r)
 
 There are also menu items under "Tools - Pandoc Footnotes"
 
