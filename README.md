@@ -30,6 +30,8 @@ There are also menu items under "Tools - Pandoc Footnotes"
 Inserting Footnotes (super+alt+r)
 -------------------
 
+Command: insert_footnote
+
 When you insert a footnote, you will be asked for the footnote id. If you have any selections, the first selection will pre-fill the footnote id field. The footnote id is inserted at the end of the selection, otherwise at the current cursor position.
 
 After you enter the footnote id, you will be asked to supply the footnote text. The footnote text is inserted at the end of the document.
@@ -38,6 +40,8 @@ There are a number of changes coming to this behaviour. Please see the comments 
 
 Checking Footnotes (ctrl+super+alt+r)
 ------------------
+
+Command: check_footnotes
 
 This checks that each footnote id inserted in the text has a corresponding footnote text item, and that all footnote text items has a matching footnote id inserted in the text.
 
