@@ -3,7 +3,7 @@ PandocReferencr
 
 This plugin totes up the Pandoc/Markdown footnote references in the current  file  and checks there is an entry for the reference. It also checks for orphaned footnote entries (i.e. footnote text that has no insert point in the main body).
 
-    A footnote in pandoc looks like this.[^footenoteid1]
+    A footnote in pandoc looks like this.[^footnoteid1]
 
     [^footnoteid1]: And this is the text of the footnote.
 
