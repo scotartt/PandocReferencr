@@ -1,0 +1,4 @@
+[
+	{ "keys": ["super+alt+r"], "command": "insert_footnote"},
+	{ "keys": ["super+ctrl+alt+r"], "command": "check_footnotes"},
+]

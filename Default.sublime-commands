@@ -1,0 +1,4 @@
+[
+    { "caption": "Pandoc Footnotes: Check", "command": "check_footnotes" },
+    { "caption": "Pandoc Footnotes: Insert New", "command": "insert_footnote" },
+]
