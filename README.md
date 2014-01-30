@@ -1,7 +1,12 @@
 PandocReferencr
 ===============
 
-This plugin totes up the Pandoc/Markdown footnote references in a file ([^reference1]) and checks there is an entry for the reference. It also checks for orphaned footnote entries (i.e. footnote text that has no insert point in the main body).
+This plugin totes up the Pandoc/Markdown footnote references in the current  file  and checks there is an entry for the reference. It also checks for orphaned footnote entries (i.e. footnote text that has no insert point in the main body).
+
+    A footnote in pandoc looks like this.[^footenoteid1]
+
+    [^footnoteid1]: And this is the text of the footnote.
+
 
 Installing it in Sublime Text
 -----------------------------
@@ -39,4 +44,15 @@ When you check the footnotes, if everything is OK in current buffer (open docume
 If there are errors, a warning dialog will tell you the ids and line numbers where there are issues.
 
 
-  [^reference1]: The text of reference1 is this text.
+
+    For example, this text has a footnote with a valid footnote 
+    text.[^footnote1] However this note is missing,[^missing1] if 
+    you invoke check_references on this file it will say there's 
+    TWO errors. The first one is 'missing1'.
+
+    [^hithere0]: The second error is that there is no 'hithere0'
+    footnote inserted anywhere in the main body text (Orphaned 
+    footnote text).
+
+    [^footnote1]: This is the valid footnote text.
+
