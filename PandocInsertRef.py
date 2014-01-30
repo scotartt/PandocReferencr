@@ -7,7 +7,7 @@ spaces = re.compile(r"[\s\W]+", re.MULTILINE)
 _s = sublime.load_settings('PandocReferencr.sublime-settings')
 _footnote_placement = _s.get('footnote_placement', 'document')
 _space_prepend_count = _s.get('space_prepend_count', 0)
-_default_footnote_prefix = _s.get('default_footnote_prefix', 'rfn')
+_default_footnote_prefix = _s.get('default_footnote_prefix', 'fn')
 if _space_prepend_count > 2:
 	print ("space prepend count value is too large. forcing to maxvalue=2 ... was " + str(_space_prepend_count))
 	_space_prepend_count = 2;
