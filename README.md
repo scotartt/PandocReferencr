@@ -92,4 +92,7 @@ If there are errors, a warning dialog will tell you the footnote ids and line nu
 Licence
 -------
 
-This software is licensed using the GNU GPL version 2. No responsibility or liability is assumed in its useage. 
+This software is licensed using the GNU GPL version 2. 
+
+No warranty, responsibility, or liability is assumed by the author in any use of this software. 
+
