@@ -1,14 +1,14 @@
 {
-	// footnote_placement is either 'document' or 'paragraph'. 
-	// The default is 'document', which puts the footnote text at the end of document
-	// If you prefer, 'paragraph' will put the footnote text after the paragraph where it appears.
+    // footnote_placement is either 'document' or 'paragraph'. 
     "footnote_placement": "document",
 
-    // how many spaces to put before the footnote text. 
-    // default is 0. must be < 3.
-    "space_prepend_count": 8,
+     // how many spaces to put before the footnote text. 
+    // default is 0. Must be < 4. Values other than 0 not strictly
+    // conformant to the Pandoc spec, but they work if < 4 (four spaces
+    // or a tab, or more, would make the text block into a code block)
+    "space_prepend_count": 0,
 
     // by default, what is the default prefix to use for footnotes 
-    // when no other value can be computed. default is "fn".
+    // when no other value can be computed. Default is "fn".
     "default_footnote_prefix": "fn",
 }
