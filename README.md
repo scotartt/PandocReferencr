@@ -60,9 +60,10 @@ Command: insert_footnote
 
 When you insert a footnote, you will be asked for the footnote id. If you have any selections, the first selection will pre-fill the footnote id field. The footnote id is inserted at the end of the selection, otherwise at the current cursor position.
 
-After you enter the footnote id, you will be asked to supply the footnote text. The footnote text is inserted at the end of the document. It tries to insert the footnote cleanly. If there is no newline at the end of the file, it compensates for this. If there are multiple newlines at the end of the file, it inserts the footnote at the top of the newlines. If there is a complex mixture of whitespace and newlines at the end of the file, it acts fairly sensibly, but not as cleanly. You could try keeping the end of your file in a cleaner state ;-) ... there's probably plugins for that.
+After you enter the footnote id, you will be asked to supply the footnote text. The footnote text is inserted at the end of the document. It tries to insert the footnote cleanly. If there is no newline at the end of the file, it compensates for this. If there are multiple newlines at the end of the file, it inserts the footnote at the top of the newlines. If there is a complex mixture of whitespace and newlines at the end of the file, it acts fairly sensibly, but not as cleanly. You could try keeping the end of your file in a cleaner state ;-) ... there are settings for this:
 
-*N.B. I've actually only tested with 'newlines,' i.e. Unix flavour line feed ('\n')! Files with "DOS" (Windows) style line endings ('\r\n') may confuse it. I can't tell; I have no Windows and I could not be bothered creating a test file. It's pretty sad that our text files formats are still under the sway of teletypes and line printers!*
+    "default_line_ending": "unix",
+    "ensure_newline_at_eof_on_save": true,
 
 There are a number of changes coming to this behaviour. Please see the comments on [this issue](https://github.com/scotartt/PandocReferencr/issues/1) for a description of how that behaviour will work.
 
@@ -88,3 +89,7 @@ If there are errors, a warning dialog will tell you the footnote ids and line nu
 
     [^footnote1]: This is the valid footnote text.
 
+Licence
+-------
+
+This software is licensed using the GNU GPL version 2. No responsibility or liability is assumed in its useage. 
