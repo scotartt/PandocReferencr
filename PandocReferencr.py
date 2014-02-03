@@ -27,6 +27,13 @@ class CheckFootnotesCommand(sublime_plugin.TextCommand):
 		matched_arrays = self.match_fntexts(matched_fn, unmatched_fn, all_buffer);
 		unmatched_fn = matched_arrays[1] 
 		## the above function only modifies the unmatched data.
+		l_len = len(unmatched_fn)
+		print("There are " + str(l_len) + " errors in total.")
+		if l_len > 5:
+			unmatched_fn = unmatched_fn[:4]
+			unmatched_fn.append({
+				"line" : len(all_buffer) + 1,
+				"err_msg" : "THERE ARE " + str(l_len-4) + " MORE ERRORS NOT DISPLAYED HERE DUE TO CONSTRAINTS OF SPACE."})
 
 		self.alert(unmatched_fn)
 		return
@@ -44,7 +51,7 @@ class CheckFootnotesCommand(sublime_plugin.TextCommand):
 			
 			sublime.error_message("Unmatched footnotes!\n\n" + str(unmatched_msg))
 		else :
-			msg = "All OK!"
+			msg = "All Footnotes OK!"
 			print(msg)
 			sublime.status_message(msg)
 		return

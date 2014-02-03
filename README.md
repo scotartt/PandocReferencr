@@ -74,9 +74,9 @@ Command: check_footnotes
 
 This checks that each footnote id inserted in the text has a corresponding footnote text item, and that all footnote text items has a matching footnote id inserted in the text.
 
-When you check the footnotes, if everything is OK in current buffer (open document), that is all the footnote ids and texts match, then the status line will say "All OK!"
+When you check the footnotes, if everything is OK in current buffer (open document), that is all the footnote ids and texts match, then the status line will say "All Footnotes OK!"
 
-If there are errors, a warning dialog will tell you the footnote ids and line numbers where there are issues.
+If there are errors, a warning dialog will tell you the footnote ids and line numbers where there are issues, up to 5 issues. If there are more than 5 issues with the footnotes, you are only shown the first four, plus additional line alerting you to the presence of more footnotes errors.
 
     For example, this text has a footnote with a valid footnote 
     text.[^footnote1] However this note is missing,[^missing1] if 
