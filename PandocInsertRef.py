@@ -15,9 +15,9 @@ def get_prefs():
 	global _space_prepend_count
 	global _default_footnote_prefix
 	glob_settings = sublime.load_settings('PandocReferencr.sublime-settings')
-	_footnote_placement = glob_settings.get('footnote_placement', 'document')
-	_space_prepend_count = glob_settings.get('space_prepend_count', 0)
-	_default_footnote_prefix = glob_settings.get('default_footnote_prefix', 'fn')
+	_footnote_placement = glob_settings.get('footnote_placement', _footnote_placement)
+	_space_prepend_count = glob_settings.get('space_prepend_count', _space_prepend_count)
+	_default_footnote_prefix = glob_settings.get('default_footnote_prefix', _default_footnote_prefix)
 	if _space_prepend_count > 3 :
 		print ("space prepend count value is too large. forcing to maxvalue=3 ... was " + str(_space_prepend_count))
 		_space_prepend_count = 3
